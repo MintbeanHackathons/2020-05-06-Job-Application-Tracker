@@ -1,2 +1,5 @@
 node_modules/
 *.log
+
+job-application-tracker-app/node_modules
+job-application-tracker-app/.gitignore

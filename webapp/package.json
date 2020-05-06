@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.9.13",
+    "gh-pages": "^2.2.0",
     "hookrouter": "^1.2.3",
     "react-indexed-db": "^1.0.8"
   }

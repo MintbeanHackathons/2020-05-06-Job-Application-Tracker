@@ -9,7 +9,7 @@ export class EditJob extends Component {
         <div className="container">
           <h3 className="edit-job-title">Edit:</h3>
 
-          <button onClick={closeEdit}>Close Edit</button>
+          <button onClick={() => closeEdit}>Close Edit</button>
         </div>
       </div>
     );

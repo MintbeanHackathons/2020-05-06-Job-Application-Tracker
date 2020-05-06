@@ -44,6 +44,10 @@ export class App extends Component {
     this.setState({ selectedApplication: job, editView: true });
   };
 
+  handleClose = () => {
+    this.setState({ editView: false, selectedJob: {} });
+  };
+
   render() {
     const { applications, loading, selectedJob, editView } = this.state;
 
@@ -53,13 +57,7 @@ export class App extends Component {
         <main className="main">
           <AddApplication />
           {editView && (
-            <EditJob
-              job={selectedJob}
-              closeEdit={() => {
-                console.log("here");
-                this.setState({ editView: false, selectedJob: {} });
-              }}
-            />
+            <EditJob job={selectedJob} closeEdit={this.handleClose} />
           )}
           <ApplicationList
             loading={loading}

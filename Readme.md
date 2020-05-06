@@ -1,5 +1,8 @@
 The backend was made using postgres and can be seeded by running "npm run seed".  To start the server, run "npm run start-server"
 
+
+06 May 2020, 3 pm.  Spent too much time on the backend setting up database stuff and setting up the api calls in the reducers So I did not get to the front end at all.
+
 =======================================================================
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -40,6 +40,7 @@ const ApplicationList = (props) => {
   return (
     <div className="application-list">
       <div className="container">
+        <h2 className="application-list-title">Your Applications:</h2>
         <div className="application-list-header">
           {renderApplicationHeader()}
         </div>

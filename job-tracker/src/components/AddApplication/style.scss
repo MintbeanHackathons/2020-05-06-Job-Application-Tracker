@@ -1,0 +1,54 @@
+.add-application {
+  margin-bottom: 2rem;
+
+  &-title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  &-form {
+    width: 60%;
+    margin: 0 auto;
+
+    button {
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+      color: white;
+      background-color: navy;
+      border: none;
+      padding: 1rem 0;
+
+      &:hover {
+        background-color: lighten(navy, 5%);
+      }
+    }
+  }
+
+  &-error {
+    color: red;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  &-text-input {
+    margin-bottom: 1rem;
+  }
+
+  &-date-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  &-date-label,
+  &-date-input {
+    display: block;
+  }
+
+  &-date-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+}

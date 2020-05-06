@@ -1,4 +1,9 @@
 .application-list {
+  &-title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
   &-header,
   &-job {
     display: grid;

@@ -1,0 +1,14 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+
+  &-label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  &-input {
+    display: block;
+  }
+}

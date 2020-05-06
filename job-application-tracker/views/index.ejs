@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <h1>Job Application Tracker</h1>
+    <table id="companies">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Company</th>
+          <th>Job Description Url</th>
+          <th>Notes</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% jat.forEach((j)=> { %>
+          <tr>
+            <td><%= j.type %></td>
+            <td><%= j.company %></td>
+            <td><%= j.jobDescriptionUrl %></td>
+            <td><%= j.notes %></td>
+            <td><%= j.createdAt %></td>
+            <td><%= j.updatedAt %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+  </body>
+</html>

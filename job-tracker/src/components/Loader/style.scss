@@ -1,0 +1,19 @@
+.loading {
+  width: 100px;
+  margin: 0 auto;
+
+  &-spinner {
+    animation: spin 2s linear infinite;
+    max-width: 90px;
+
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

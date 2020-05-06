@@ -1,3 +1,7 @@
+The backend was made using postgres and can be seeded by running "npm run seed".  To start the server, run "npm run start-server"
+
+=======================================================================
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

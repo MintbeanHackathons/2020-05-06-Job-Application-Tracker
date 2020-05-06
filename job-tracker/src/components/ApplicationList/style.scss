@@ -1,0 +1,21 @@
+.application-list {
+  &-header,
+  &-job {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &-header {
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+  }
+
+  &-job {
+    padding: 0.5rem 0;
+    cursor: pointer;
+
+    &:hover {
+      background: #ccc;
+    }
+  }
+}

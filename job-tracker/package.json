@@ -38,5 +38,6 @@
   },
   "devDependencies": {
     "gh-pages": "^2.2.0"
-  }
+  },
+  "homepage": "https://andrewthamcc.github.io/2020-05-06-Job-Application-Tracker/"
 }

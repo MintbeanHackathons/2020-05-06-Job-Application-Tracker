@@ -5,6 +5,7 @@ import firebase from "./utils/firebase";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import AddApplication from "./components/AddApplication";
+import EditJob from "./components/EditJob";
 import ApplicationList from "./components/ApplicationList";
 
 require("./styles/main.scss");
@@ -15,10 +16,13 @@ export class App extends Component {
     this.state = {
       applications: [],
       selectedJob: {},
+      loading: false,
+      editView: false,
     };
   }
 
   componentDidMount() {
+    this.setState({ loading: true });
     const dbRef = firebase.database().ref();
 
     dbRef.on("value", (res) => {
@@ -32,25 +36,35 @@ export class App extends Component {
         applications.push(stateData);
       }
 
-      this.setState({ applications: applications });
+      this.setState({ applications, loading: false });
     });
   }
 
-  handleSelect = (application) => {
-    this.setState({ selectedApplication: application });
+  handleEdit = (job) => {
+    this.setState({ selectedApplication: job, editView: true });
   };
 
   render() {
-    const { applications, selectedJob } = this.state;
+    const { applications, loading, selectedJob, editView } = this.state;
 
     return (
       <div className="App">
         <Header />
         <main className="main">
           <AddApplication />
+          {editView && (
+            <EditJob
+              job={selectedJob}
+              closeEdit={() => {
+                console.log("here");
+                this.setState({ editView: false, selectedJob: {} });
+              }}
+            />
+          )}
           <ApplicationList
+            loading={loading}
             applications={applications}
-            handleSelect={this.handleSelect}
+            handleEdit={this.handleEdit}
           />
         </main>
         <Footer />

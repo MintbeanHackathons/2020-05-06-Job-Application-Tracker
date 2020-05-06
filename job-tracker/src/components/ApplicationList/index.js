@@ -5,7 +5,7 @@ import Loader from "../Loader";
 require("./style.scss");
 
 const ApplicationList = (props) => {
-  const { applications, handleSelect } = props;
+  const { applications, handleEdit, loading } = props;
 
   const renderApplicationHeader = () => {
     return (
@@ -16,6 +16,8 @@ const ApplicationList = (props) => {
         <li className="application-list-header-title">Date Applied:</li>
         <li className="application-list-header-title">Source:</li>
         <li className="application-list-header-title">Response:</li>
+        <li className="application-list-header-title">Delete</li>
+        <li className="application-list-header-title">Edit</li>
       </>
     );
   };
@@ -28,17 +30,21 @@ const ApplicationList = (props) => {
   const renderApplications = () => {
     return applications.map((job) => {
       return (
-        <div
-          key={job.id}
-          className="application-list-job"
-          onClick={() => handleSelect(job)}
-        >
+        <div key={job.id} className="application-list-job">
           <li className="application-list-job-cell">{job.company}</li>
           <li className="application-list-job-cell">{job.role}</li>
           <li className="application-list-job-cell">{job.contact}</li>
           <li className="application-list-job-cell">{job.dateApplied}</li>
           <li className="application-list-job-cell">{job.posting}</li>
           <li className="application-list-job-cell">{job.response}</li>
+          <li className="application-list-job-cell">
+            <button
+              className="application-list-edit"
+              onClick={() => handleEdit(job)}
+            >
+              Edit
+            </button>
+          </li>
           <li className="application-list-job-cell">
             <button
               className="application-list-delete"
@@ -56,7 +62,7 @@ const ApplicationList = (props) => {
     <div className="application-list">
       <div className="container">
         <h2 className="application-list-title">Your Applications:</h2>
-        {applications.length === 0 ? (
+        {loading ? (
           <Loader />
         ) : (
           <>

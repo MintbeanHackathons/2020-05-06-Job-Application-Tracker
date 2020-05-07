@@ -9,7 +9,7 @@
               :fields="fields",
               :items="data")
         template(v-slot:cell(url)="data")
-          b-link(:href="data.item.jobPostingURL") Link
+          b-link(v-if="data.item.jobPostingURL.startsWith('http')" :href="data.item.jobPostingURL") Link
         template(v-slot:cell()="data")
           i {{ data.value }}
         template(v-slot:cell(createdAt)="data")
@@ -44,12 +44,6 @@ export default {
   },
   methods: {
     ...mapActions(["populateEditForm","remove"]),
-    // edit(id) {
-    //   this.$parent.edit(id);
-    // },
-    // remove(id) {
-    //   this.data.splice(id, 1);
-    // },
     formatDate(date) {
       return moment(date).format("MMMM Do YYYY");
     },

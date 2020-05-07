@@ -1,5 +1,8 @@
 <template lang="pug">
   #app
+    .row
+      .col-12
+        h3 Job Application Tracker
     AppTracker
 </template>
 

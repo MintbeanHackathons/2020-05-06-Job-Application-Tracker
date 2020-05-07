@@ -2,7 +2,8 @@ import Vuex from "vuex";
 import Vue from "vue";
 
 Vue.use(Vuex);
-export default new Vuex.Store({
+
+const store = new Vuex.Store({
   state: {
     data: [],
     show: false,
@@ -20,9 +21,16 @@ export default new Vuex.Store({
   getters: {
     data: (state) => state.data,
     form: (state) => state.form,
-    show: (state) => state.show
+    show: (state) => state.show,
   },
   mutations: {
+    initialiseStore(state) {
+      if (localStorage.getItem("store")) {
+        this.replaceState(
+          Object.assign(state, JSON.parse(localStorage.getItem("store")))
+        );
+      }
+    },
     add(state) {
       state.data.push({
         status: state.form.status,
@@ -45,6 +53,16 @@ export default new Vuex.Store({
     },
     showForm(state) {
       state.show = true;
+      state.form = {
+        id: null,
+        status: "Applied",
+        jobTitle: "",
+        company: "",
+        jobPostingURL: "",
+        notes: "",
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+      };
     },
     closeForm(state) {
       state.show = false;
@@ -72,3 +90,10 @@ export default new Vuex.Store({
     },
   },
 });
+
+store.subscribe((mutation, state) => {
+  // Store the state object as a JSON string
+  localStorage.setItem("store", JSON.stringify(state));
+});
+
+export default store;

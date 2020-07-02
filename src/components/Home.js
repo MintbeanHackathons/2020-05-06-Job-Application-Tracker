@@ -1,16 +1,3 @@
-// import React from 'react'
-
-// const Home = () => {
-//   return (
-//       <div className='homeContainer'>
-//         <h1>Job Applications</h1>
-//       </div>
-//   )
-// }
-
-// export default Home
-
-
 import React from 'react'
 import { connect } from 'react-redux'
 import { getJobApps, removingJobApp } from '../reducers/jobAppReducer'
@@ -26,7 +13,7 @@ class Home extends React.Component {
         {jobApps.map(app => {
           return (
             <div key={app.id}>
-              {app}
+              {app.id}
             </div>
           )
         })}

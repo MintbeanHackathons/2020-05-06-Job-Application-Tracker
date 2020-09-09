@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getJobApps, removingJobApp } from '../reducers/jobAppReducer'
+import AppCard from './AppCard'
 
 class Home extends React.Component {
 
@@ -12,9 +13,7 @@ class Home extends React.Component {
       <div>
         {jobApps.map(app => {
           return (
-            <div key={app.id}>
-              {app.id}
-            </div>
+            <AppCard app={app}/>
           )
         })}
       </div>
